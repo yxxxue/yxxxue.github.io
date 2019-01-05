@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="将hexo搭建到github上1、安装git。 输入代码：npm install hexo-deployer-git -save 2、配置ssh密钥。 ①输入代码： git  config –global user.name”用户名” git  config –global user.email”邮箱” ssh-keygen -t rsa -C &amp;quot;邮箱&amp;quot; 会在C:\Users\">
+<meta name="description" content="将hexo搭建到github上1、安装git。 输入代码：npm install hexo-deployer-git -save 2、配置ssh密钥。 ①输入代码： 123git  config –global user.name”用户名”git  config –global user.email”邮箱”ssh-keygen -t rsa -C &amp;quot;邮箱&amp;quot; 会在C:\Users">
 <meta name="keywords" content="hexo,教程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="将hexo搭建到github上">
 <meta property="og:url" content="http://yoursite.com/2019/01/05/将hexo搭建到github上/index.html">
 <meta property="og:site_name" content="yxxxue">
-<meta property="og:description" content="将hexo搭建到github上1、安装git。 输入代码：npm install hexo-deployer-git -save 2、配置ssh密钥。 ①输入代码： git  config –global user.name”用户名” git  config –global user.email”邮箱” ssh-keygen -t rsa -C &amp;quot;邮箱&amp;quot; 会在C:\Users\">
+<meta property="og:description" content="将hexo搭建到github上1、安装git。 输入代码：npm install hexo-deployer-git -save 2、配置ssh密钥。 ①输入代码： 123git  config –global user.name”用户名”git  config –global user.email”邮箱”ssh-keygen -t rsa -C &amp;quot;邮箱&amp;quot; 会在C:\Users">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-05T15:24:30.896Z">
+<meta property="og:updated_time" content="2019-01-05T16:06:23.964Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="将hexo搭建到github上">
-<meta name="twitter:description" content="将hexo搭建到github上1、安装git。 输入代码：npm install hexo-deployer-git -save 2、配置ssh密钥。 ①输入代码： git  config –global user.name”用户名” git  config –global user.email”邮箱” ssh-keygen -t rsa -C &amp;quot;邮箱&amp;quot; 会在C:\Users\">
+<meta name="twitter:description" content="将hexo搭建到github上1、安装git。 输入代码：npm install hexo-deployer-git -save 2、配置ssh密钥。 ①输入代码： 123git  config –global user.name”用户名”git  config –global user.email”邮箱”ssh-keygen -t rsa -C &amp;quot;邮箱&amp;quot; 会在C:\Users">
 
 
 
@@ -346,19 +346,21 @@
 <p>输入代码：<code>npm install hexo-deployer-git -save</code></p>
 <p>2、配置ssh密钥。</p>
 <p>①输入代码：</p>
-<p><code>git  config –global user.name”用户名”</code></p>
-<p><code>git  config –global user.email”邮箱”</code></p>
-<p><code>ssh-keygen -t rsa -C &quot;邮箱&quot;</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git  config –global user.name”用户名”</span><br><span class="line">git  config –global user.email”邮箱”</span><br><span class="line">ssh-keygen -t rsa -C &quot;邮箱&quot;</span><br></pre></td></tr></table></figure>
 <p>会在C:\Users\xy中生成一个.ssh文件，</p>
 <p>②在github中设置</p>
 <p>将文件id_rsa.pub用记事本打开，</p>
 <p>在github中，选择”setting” —”SSH and GPG keys”-”new SSH key” （<a href="https://github.com/settings/keys" target="_blank" rel="noopener">https://github.com/settings/keys</a>）,添加一个ssh密钥。将id_rsa.pub中的内容将复制到ssh的”key”中，注意前后不要有空格。Ssh中“title“可以随意填写。</p>
 <p>③测试是否成功——在代码中输入：<code>ssh –T [git@github.com</code></p>
+<p>成功后会显示如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hi xxx! You&apos;ve successfully authenticated, but GitHub does not # provide shell access.</span><br></pre></td></tr></table></figure>
+<p>这是你的密钥应该绿了。如果没绿的话，可以等等，或者在github上随便下载个东西什么的。</p>
+<p>之后运行<code>hexo d</code>时，可能会出现如下错误</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"> Error:</span><br><span class="line">*** Please tell me who you are.</span><br><span class="line"></span><br><span class="line">Run</span><br><span class="line"></span><br><span class="line">  git config --global user.email &quot;you@example.com&quot;</span><br><span class="line">  git config --global user.name &quot;Your Name&quot;</span><br></pre></td></tr></table></figure>
+<p>这时只要安装上面的要求输入自己的用户名和邮箱就可以了</p>
 <p>当然这只是理想状态下的流程，现实中总会遇到各种各样的问题，最简单的办法就是重装。指不定哪次就成功了呢。</p>
 <p>之后就可以输入代码更新hexo上的个人网站。</p>
-<p><code>hexo g</code></p>
-<p><code>hexo d</code></p>
-<p><code>hexo s</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo d</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -430,8 +432,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/01/05/剪开蚕茧/" rel="prev" title="剪开蚕茧">
-                剪开蚕茧 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/01/05/剪开蚕茧/" rel="prev" title="剪开蚕茧——第二课时">
+                剪开蚕茧——第二课时 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -509,7 +511,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
